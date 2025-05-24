@@ -8,7 +8,7 @@
 - [ ] qBittorrent
 - [ ] Gluetun
 
-## Indexing
+## Management
 - [ ] Prowlarr
 - [ ] Flaresolvarr
 
