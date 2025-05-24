@@ -1,16 +1,18 @@
 ## Main *Arrs
-- [ ] Radarr
-- [ ] Sonarr
-- [ ] Lidarr
-- [ ] Readarr
+- [X] Radarr
+- [X] Sonarr
+- [X] Lidarr
+- [X] Readarr
 
 ## Downloader/VPN
-- [ ] qBittorrent
-- [ ] Gluetun
+- [X] qBittorrent
+- [X] Gluetun
 
 ## Management
-- [ ] Prowlarr
-- [ ] Flaresolvarr
+- [X] Prowlarr
+- [X] Flaresolvarr
+- [X] Overseer
+- [X] Profilarr
 
 ## Media
 - [ ] Plex
