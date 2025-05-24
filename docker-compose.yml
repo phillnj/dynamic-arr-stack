@@ -1,159 +1,17 @@
-version: '3.8'
+name: dynamic-arr-stack
 
-services:
-  radarr:
-    image: linuxserver/radarr:latest
-    container_name: radarr
-    environment:
-      - PUID=99 # Replace with your user ID
-      - PGID=100 # Replace with your group ID
-      - TZ=Etc/UTC # Replace with your timezone, e.g., "America/New_York"
-    volumes:
-      - radarr_config:/config # Persistent configuration storage
-      - ${DOWNLOAD_PATH} # Source for downloaded files (NFS share)
-      - ${MOVIE_PATH} # Target for movie library (NFS share)
-      - ${OLD_MOVIE_PATH}
-    ports:
-      - "7878:7878" # Radarr's web interface
-    restart: unless-stopped
-    deploy:
-      replicas: ${ENABLE_RADARR}
+include:
+  # Main Arrs; Comment out to disable
+  - main_arrs/lidarr.yml
+  - main_arrs/radarr.yml
+  - main_arrs/readarr.yml
+  - main_arrs/sonarr.yml
 
-  sonarr:
-    image: linuxserver/sonarr:latest
-    container_name: sonarr
-    environment:
-      - PUID=99 # Replace with your user ID
-      - PGID=100 # Replace with your group ID
-      - TZ=Etc/UTC # Replace with your timezone, e.g., "America/New_York"
-    volumes:
-      - sonarr_config:/config # Persistent configuration storage
-      - ${DOWNLOAD_PATH} # Source for downloaded files (NFS share)
-      - ${TV_PATH} # Target for TV library (NFS share)
-      - ${OLD_TV_PATH}
-    ports:
-      - "8989:8989" # Sonarr's web interface
-    restart: unless-stopped
-    deploy:
-      replicas: ${ENABLE_SONARR}
+  # Download Client/VPN; Comment out to disable
+  - download_client_vpn/qbittorrent.yml
+  - download_client_vpn/gluetun.yml
 
-  qbittorrent:
-    image: linuxserver/qbittorrent:latest
-    container_name: qbittorrent
-    environment:
-      - PUID=99 # Replace with your user ID
-      - PGID=100 # Replace with your group ID
-      - TZ=Etc/UTC # Replace with your timezone, e.g., "America/New_York"
-      - WEBUI_PORT=8080
-    volumes:
-      - qbittorrent_config:/config # Persistent configuration storage
-      - ${DOWNLOAD_PATH} # Target for downloaded files (NFS share)
-    network_mode: "service:gluetun"
-    restart: unless-stopped
-    deploy:
-      replicas: ${ENABLE_QBITTORRENT}
-
-  prowlarr:
-    image: linuxserver/prowlarr:latest
-    container_name: prowlarr
-    environment:
-      - PUID=99 # Replace with your user ID
-      - PGID=100 # Replace with your group ID
-      - TZ=Etc/UTC # Replace with your timezone, e.g., "America/New_York"
-    volumes:
-      - prowlarr_config:/config # Persistent configuration storage
-    ports:
-      - "9696:9696" # Prowlarr's web interface
-    restart: unless-stopped
-    deploy:
-      replicas: ${ENABLE_PROWLARR}
-
-  gluetun:
-    image: qmcgaw/gluetun
-    container_name: gluetun
-    cap_add:
-      - NET_ADMIN
-    devices:
-      - /dev/net/tun:/dev/net/tun
-    environment:
-      - VPN_SERVICE_PROVIDER=airvpn
-      - VPN_TYPE=wireguard
-      - WIREGUARD_PRIVATE_KEY= #redacted
-      - WIREGUARD_PRESHARED_KEY= #redacted
-      - WIREGUARD_ADDRESSES= #redacted
-      - FIREWALL_VPN_INPUT_PORTS=9230
-    ports:
-      - "8080:8080" # qBittorrent's web interface
-      - "9230:9230" # BitTorrent port
-      - "9230:9230/udp" # BitTorrent UDP port
-
-    restart: unless-stopped
-    deploy:
-      replicas: ${ENABLE_GLUETUN}
-      
-  profilarr:
-      image: santiagosayshey/profilarr:latest # Use :beta for early access to new features
-      container_name: profilarr
-      volumes:
-          - profilarr_config:/config
-      environment:
-          - PUID=99
-          - PGID=100
-          - TZ=Etc/UTC # Set your timezone
-      ports:
-          - "6868:6868"
-      restart: unless-stopped
-      deploy:
-        replicas: ${ENABLE_PROFILARR}
-
-  flaresolverr:
-    image: ghcr.io/flaresolverr/flaresolverr:latest
-    container_name: flaresolverr
-    environment:
-      - LOG_LEVEL=info
-      - LOG_HTML=flasene}
-      - TZ=Etc/UTC
-    ports:
-      - "8192:8191"
-    restart: unless-stopped
-    deploy:
-      replicas: ${ENABLE_FLARESOLVARR}
-
-  readarr:
-    image: ghcr.io/linuxserver/readarr:develop
-    container_name: readarr
-    environment:
-      - PUID=99
-      - PGID=100
-      - TZ=Etc/UTC
-    volumes:
-      - readarr_config:/config
-      - ${BOOK_PATH}
-      - ${DOWNLOAD_PATH}
-    ports:
-      - "8787:8787"
-    deploy:
-      replicas: ${ENABLE_READARR}
-
-  overseerr:
-    image: sctx/overseerr:latest
-    container_name: overseerr
-    environment:
-      - LOG_LEVEL=debug
-      - TZ=Asia/Tokyo
-      - PORT=5055 #optional
-    ports:
-      - 5055:5055
-    volumes:
-      - /path/to/appdata/config:/app/config
-    restart: unless-stopped
-    deploy:
-      replicas: ${ENABLE_OVERSEER}
-      
-volumes:
-  radarr_config:
-  sonarr_config:
-  qbittorrent_config:
-  prowlarr_config:
-  profilarr_config:
-  readarr_config:
+  # Management; Comment out to disable
+  - management/overseer.yml
+  - management/flaresolvarr.yml
+  - management/prowlarr.yml
