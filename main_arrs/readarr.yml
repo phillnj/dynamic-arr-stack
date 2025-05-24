@@ -1,0 +1,15 @@
+services:
+  readarr:
+    image: linuxserver/readarr:latest
+    container_name: readarr
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - readarr_config:/config
+      - ${DOWNLOADS_PATH}:/media/downloads
+      - ${BOOKS_PATH}:/media/books
+    ports:
+      - 8787:8787
+    restart: unless-stopped
