@@ -1,0 +1,15 @@
+services:
+  overseerr:
+    image: sctx/overseerr:latest
+    container_name: overseerr
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - LOG_LEVEL=info
+      - PORT=5055
+    ports:
+      - 5055:5055
+    volumes:
+      - overseer_config:/app/config
+    restart: unless-stopped
