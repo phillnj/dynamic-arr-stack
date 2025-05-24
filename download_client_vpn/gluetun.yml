@@ -1,0 +1,22 @@
+services:
+  gluetun:
+    image: qmcgaw/gluetun
+    container_name: gluetun
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - ${VPN_SERVICE_PROVIDER}
+      - ${VPN_TYPE}
+      - ${WIREGUARD_PRIVATE_KEY}
+      - ${WIREGUARD_PRESHARED_KEY}
+      - ${WIREGUARD_ADDRESSES}
+      - ${FIREWALL_VPN_INPUT_PORTS}
+    ports:
+      - 8080:8080 # Web UI
+      - 9230:9230 # BitTorrent
+      - 9230:9230/udp # BitTorrent UDP
