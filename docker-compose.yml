@@ -12,7 +12,7 @@ include:
   - download_client_vpn/gluetun.yml
 
   # Management; Comment out to disable
-  - management/overseer.yml
+  - management/overseerr.yml
   - management/flaresolverr.yml
   - management/prowlarr.yml
   - management/profilarr.yml
