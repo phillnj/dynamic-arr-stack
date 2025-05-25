@@ -13,3 +13,5 @@ services:
     ports:
       - 8787:8787
     restart: unless-stopped
+volumes:
+  readarr_config:

@@ -11,3 +11,5 @@ services:
     ports:
       - 9696:9696
     restart: unless-stopped
+volumes:
+  prowlarr_config:

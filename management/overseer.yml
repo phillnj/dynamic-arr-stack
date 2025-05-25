@@ -13,3 +13,5 @@ services:
     volumes:
       - overseer_config:/app/config
     restart: unless-stopped
+volumes:
+  overseer_config:

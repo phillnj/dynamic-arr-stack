@@ -13,3 +13,5 @@ services:
     ports:
       - 8686:8686
     restart: unless-stopped
+volumes:
+  lidarr_config:

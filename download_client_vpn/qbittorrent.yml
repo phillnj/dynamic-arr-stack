@@ -12,3 +12,7 @@ services:
       - ${DOWNLOADS_PATH}:/media/downloads
     network_mode: "service:gluetun"
     restart: unless-stopped
+    depends_on:
+      - gluetun
+volumes:
+  qbittorrent_config:
