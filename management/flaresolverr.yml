@@ -1,0 +1,13 @@
+services:
+  flaresolverr:
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    container_name: flaresolverr
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - LOG_LEVEL=info
+      - LOG_HTML=flasene}
+    ports:
+      - 8192:8191
+    restart: unless-stopped
