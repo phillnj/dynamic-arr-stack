@@ -1,4 +1,4 @@
-name: dynamic-arr-stack
+name: arr-stack
 
 include:
   # Main Arrs; Comment out to disable
