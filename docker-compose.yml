@@ -13,6 +13,6 @@ include:
 
   # Management; Comment out to disable
   - management/overseer.yml
-  - management/flaresolvarr.yml
+  - management/flaresolverr.yml
   - management/prowlarr.yml
   - management/profilarr.yml
