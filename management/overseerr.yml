@@ -1,6 +1,6 @@
 services:
   overseerr:
-    image: sctx/overseerr:latest
+    image: linuxserver/overseerr:latest
     container_name: overseerr
     environment:
       - PUID=${PUID}
@@ -11,7 +11,7 @@ services:
     ports:
       - 5055:5055
     volumes:
-      - overseerr_config:/app/config
+      - overseerr_config:/config
     restart: unless-stopped
 volumes:
   overseerr_config:
