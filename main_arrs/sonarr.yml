@@ -9,8 +9,8 @@ services:
     volumes:
       - sonarr_config:/config
       - ${DOWNLOADS_PATH}:/media/downloads
-      - ${TV_PATH}:/media/movies
-      - ${OLD_TV_PATH}:/media/old_movies
+      - ${TV_PATH}:/media/tv
+      - ${OLD_TV_PATH}:/media/old_tv
     ports:
       - 8989:8989
     restart: unless-stopped
