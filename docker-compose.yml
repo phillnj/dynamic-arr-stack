@@ -1,4 +1,4 @@
-name: arr-stack
+name: arr_stack
 
 include:
   # Main Arrs; Comment out to disable
