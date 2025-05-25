@@ -1,6 +1,6 @@
 services:
   readarr:
-    image: linuxserver/readarr:latest
+    image: linuxserver/readarr:develop
     container_name: readarr
     environment:
       - PUID=${PUID}
