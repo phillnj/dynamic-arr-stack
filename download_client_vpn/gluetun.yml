@@ -22,6 +22,7 @@ services:
       - WIREGUARD_MTU=${WIREGUARD_MTU}
       - FIREWALL_VPN_INPUT_PORTS=${FIREWALL_VPN_INPUT_PORTS}
     ports:
+      - 8000:8000/tcp # HTTP API
       - 8080:8080 # Web UI
       - 9230:9230 # BitTorrent
       - 9230:9230/udp # BitTorrent UDP
