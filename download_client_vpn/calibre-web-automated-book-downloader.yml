@@ -1,0 +1,20 @@
+services:
+  calibre-web-automated-book-downloader:
+    image: ghcr.io/calibrain/calibre-web-automated-book-downloader:latest
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - LOG_LEVEL=info
+      - FLASK_PORT=8084
+      - BOOK_LANGUAGE=en
+      - USE_BOOK_TITLE=true
+      - APP_ENV=prod
+    ports:
+      - 8084:8084
+    network_mode: service:gluetun
+    volumes:
+      # This is where the books will be downloaded to, usually it would be 
+      # the same as whatever you gave in "calibre-web-automated"
+      - ${DOWNLOADS_PATH}/books:/cwa-book-ingest
+    restart: unless-stopped

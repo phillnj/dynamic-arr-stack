@@ -4,19 +4,20 @@ include:
   # Main Arrs; Comment out to disable
   - main_arrs/lidarr.yml
   - main_arrs/radarr.yml
-  - main_arrs/readarr.yml
+  # - main_arrs/readarr.yml # Buggy, disabled for now
   - main_arrs/sonarr.yml
 
   # Download Client/VPN; Comment out to disable
   - download_client_vpn/qbittorrent.yml
   - download_client_vpn/gluetun.yml
+  - download_client_vpn/calibre-web-automated-book-downloader.yml
 
   # Management; Comment out to disable
   - management/overseerr.yml
   - management/flaresolverr.yml
   - management/prowlarr.yml
   - management/profilarr.yml
-  - management/calibre-web.yml
+  - management/calibre-web-automated.yml
 
 networks:
   arr_stack_default:
