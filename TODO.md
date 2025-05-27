@@ -13,7 +13,13 @@
 - [X] Flaresolvarr
 - [X] Overseer
 - [X] Profilarr
+- [X] Calibre Web
 
 ## Media
 - [ ] Plex
 - [ ] Jellyfin
+
+## Docker
+- [ ] ipv6 script
+- [ ] fix networks
+- [ ] allow for automatic use of NFS
