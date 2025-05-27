@@ -16,3 +16,9 @@ include:
   - management/flaresolverr.yml
   - management/prowlarr.yml
   - management/profilarr.yml
+  - management/calibre-web.yml
+
+networks:
+  arr_stack_default:
+    name: arr_stack_default
+    external: true # Temporary for use of a manually configured ipv6 network
