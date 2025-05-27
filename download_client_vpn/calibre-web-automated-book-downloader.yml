@@ -10,8 +10,6 @@ services:
       - BOOK_LANGUAGE=en
       - USE_BOOK_TITLE=true
       - APP_ENV=prod
-    ports:
-      - 8084:8084
     network_mode: service:gluetun
     volumes:
       # This is where the books will be downloaded to, usually it would be 
