@@ -16,7 +16,7 @@ services:
       - ${BOOKS_PATH}:/calibre-library 
     ports:
       # Change the first number to change the port you want to access the Web UI, not the second
-      - 8084:8083 
+      - 8083:8083 
     restart: unless-stopped
 volumes:
   calibre_web_automated_config:

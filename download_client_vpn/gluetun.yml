@@ -26,3 +26,4 @@ services:
       - 8080:8080 # Web UI
       - 9230:9230 # BitTorrent
       - 9230:9230/udp # BitTorrent UDP
+      - 8083:8083 # CWA-Download
