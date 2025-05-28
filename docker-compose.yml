@@ -13,11 +13,13 @@ include:
   - download_client_vpn/calibre-web-automated-book-downloader.yml
 
   # Management; Comment out to disable
-  - management/overseerr.yml
   - management/flaresolverr.yml
   - management/prowlarr.yml
   - management/profilarr.yml
-  - management/calibre-web-automated.yml
+
+  # User Facing; Comment out to disable
+  - user-facing/calibre-web-automated.yml
+  - user-facing/overseerr.yml
 
 networks:
   arr_stack_default:

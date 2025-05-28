@@ -1,0 +1,13 @@
+services:
+  huntarr:
+    image: huntarr/huntarr:latest
+    container_name: huntarr
+    environment:
+      - TZ=${TZ}
+    ports:
+      - 9705:9705
+    volumes:
+      - huntarr_config:/config
+    restart: unless-stopped
+volumes:
+  huntarr_config:
