@@ -17,6 +17,7 @@ include:
   - management/prowlarr.yml
   - management/profilarr.yml
   - management/huntarr.yml
+  - management/swaparr.yml
 
   # User Facing; Comment out to disable
   - user-facing/cwa.yml
