@@ -1,6 +1,6 @@
 services:
 
-  radarr:
+  swaparr-radarr:
     image: ghcr.io/thijmengthn/swaparr:latest
     container_name: swaparr-radarr
     restart: unless-stopped
@@ -16,7 +16,7 @@ services:
       - DRY_RUN=false                 # Boolean              (Optional) default: false
 
   # -- (Optional)
-  sonarr: 
+  swaparr-sonarr: 
     image: ghcr.io/thijmengthn/swaparr:latest
     container_name: swaparr-sonarr
     restart: unless-stopped
