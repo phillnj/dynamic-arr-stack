@@ -16,6 +16,7 @@ include:
   - management/flaresolverr.yml
   - management/prowlarr.yml
   - management/profilarr.yml
+  - management/huntarr.yml
 
   # User Facing; Comment out to disable
   - user-facing/calibre-web-automated.yml
