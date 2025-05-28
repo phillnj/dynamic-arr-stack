@@ -1,5 +1,6 @@
 services:
   calibre-web-automated-book-downloader:
+    container_name: cwa-book-downloader
     image: ghcr.io/calibrain/calibre-web-automated-book-downloader:latest
     environment:
       - PUID=${PUID}

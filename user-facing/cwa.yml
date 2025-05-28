@@ -9,7 +9,7 @@ services:
       - TZ=${TZ} 
     volumes:
       # CW users migrating should stop their existing CW instance, make a copy of the config folder, and bind that here to carry over all of their user settings ect.
-      - calibre_web_automated_config:/config 
+      - cwa_config:/config 
       # This is an ingest dir, NOT a library one. Anything added here will be automatically added to your library according to the settings you have configured in CWA Settings page. All files placed here are REMOVED AFTER PROCESSING
       - ${DOWNLOADS_PATH}/books:/cwa-book-ingest
       # If you don't have an existing library, CWA will automatically create one at the bind provided here
@@ -19,4 +19,4 @@ services:
       - 8083:8083 
     restart: unless-stopped
 volumes:
-  calibre_web_automated_config:
+  cwa_config:

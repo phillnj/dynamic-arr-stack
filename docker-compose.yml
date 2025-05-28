@@ -10,7 +10,7 @@ include:
   # Download Client/VPN; Comment out to disable
   - download_client_vpn/qbittorrent.yml
   - download_client_vpn/gluetun.yml
-  - download_client_vpn/calibre-web-automated-book-downloader.yml
+  - download_client_vpn/cwa.yml
 
   # Management; Comment out to disable
   - management/flaresolverr.yml
@@ -19,7 +19,7 @@ include:
   - management/huntarr.yml
 
   # User Facing; Comment out to disable
-  - user-facing/calibre-web-automated.yml
+  - user-facing/cwa.yml
   - user-facing/overseerr.yml
 
 networks:
