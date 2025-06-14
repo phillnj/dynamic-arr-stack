@@ -10,7 +10,7 @@ include:
   # Download Client/VPN; Comment out to disable
   - download_client_vpn/qbittorrent.yml
   - download_client_vpn/gluetun.yml
-  - download_client_vpn/cwa-downloader.yml
+  # - download_client_vpn/cwa-downloader.yml # disabled for now
 
   # Management; Comment out to disable
   - management/flaresolverr.yml
@@ -20,8 +20,8 @@ include:
   - management/swaparr.yml
 
   # User Facing; Comment out to disable
-  - user-facing/cwa.yml
-  - user-facing/overseerr.yml
+  # - user-facing/cwa.yml # disabled for now
+  # - user-facing/overseerr.yml # disabled for now
 
 networks:
   arr_stack_default:
