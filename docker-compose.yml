@@ -17,7 +17,7 @@ include:
   - management/prowlarr.yml
   - management/profilarr.yml
   - management/huntarr.yml
-  - management/swaparr.yml
+  # - management/swaparr.yml # disabled for now, huntarr adds most features
 
   # User Facing; Comment out to disable
   # - user-facing/cwa.yml # disabled for now
