@@ -10,6 +10,7 @@ services:
     volumes:
       - qbittorrent_config:/config
       - ${DOWNLOADS_PATH}:/media/downloads
+      - ${ALT_DOWNLOAD_PATH}:/media/alt_downloads
     network_mode: "service:gluetun"
     restart: unless-stopped
     depends_on:
