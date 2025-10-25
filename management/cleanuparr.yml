@@ -13,4 +13,4 @@ services:
       - 11011:11011
     restart: unless-stopped
 volumes:
-  prowlarr_config:
+  cleanuparr_config:
